@@ -53,16 +53,16 @@ Our pre-trained MedST can be found [here](https://drive.google.com/file/d/1hXn7u
 
 First, we need set the `path` (or `ckpt_path`) argument to the path of our pre-trained [MedST](https://drive.google.com/file/d/1hXn7unpGYINwBGwmpiZXfYFYxVOkr-nF/view?usp=sharing) model.
 
-##### Temporal tasks (MS-CXR-T benchmark):
+##### 1. Temporal tasks (MS-CXR-T benchmark):
 
 * make sure the path of two csv files (temporal image classification and temporal sentence similarity classification) are correct.
 * run `temporal_test.py` to get the results.
 
-##### Zero-shot classification on RSNA:
+##### 2. Zero-shot classification on RSNA:
 
 run `zeroshot_RSNA.py` to get the results.
 
-#####Image classification on COVIDx:
+##### 3. Image classification on COVIDx:
 
  We use `--data_pct` to specify the portion of training data for finetuning. To run all experiments for COVIDx classification task, we use this command:
 
@@ -73,7 +73,7 @@ run `zeroshot_RSNA.py` to get the results.
 
 ### Acknowledgement
 
-This work is built upon the MGCA and [TCC](https://github.com/June01/tcc_Temporal_Cycle_Consistency_Loss.pytorch).
+This work is built upon the [MGCA](https://github.com/fuying-wang/MGCA) and [TCC](https://github.com/June01/tcc_Temporal_Cycle_Consistency_Loss.pytorch).
 
 ### Citation
 
