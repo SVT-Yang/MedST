@@ -1,6 +1,6 @@
-# Unlocking the Power of Spatial and Temporal Information in Medical Multimodal Pre-training 【ICML 2024】
+## Unlocking the Power of Spatial and Temporal Information in Medical Multimodal Pre-training 【ICML 2024】
 
-This is the offical code of 'Unlocking the Power of Spatial and Temporal Information in Medical Multimodal Pre-training'[ICML 2024]. 
+This is the offical code of [Unlocking the Power of Spatial and Temporal Information in Medical Multimodal Pre-training](https://arxiv.org/abs/2405.19654).[ICML 2024] 
 
 
 ### Installation:
@@ -26,23 +26,21 @@ After downloading datasets, please check if the path in `constants.py` is correc
 
 ### Data preprocess:
 
-run `mimic_cxr.py` to get multi-view image-text pairs and temporal information.
-
-run `rsna.py` and `covidx.py` to get train/val/test set.
+* run `mimic_cxr.py` to get multi-view image-text pairs and temporal information.
+* run `rsna.py` and `covidx.py` to get train/val/test set.
 
 ### Pre-training:
 
-pretrained weights we used:
+First, download pretrained weights we used:
 
 * Text encoder (BioClinicalBERT) : download `pytorch_model.bin` to `/medst/emilyalsentzer/Bio_ClinicalBERT` folder from [Bio_ClinicalBERT](https://huggingface.co/emilyalsentzer/Bio_ClinicalBERT).
-
 * MGCA  pre-trained weights from [MGCA](https://github.com/fuying-wang/MGCA).
 
-Before pretraining, please make sure all the `path` are correct.
+Before pretraining, please make sure all the `path` is correct.
 
-Then, we can use this command to pretrain:
+Then, we  use this command to pretrain:
 
-```linux
+```
 cd medst/models/medst
 CUDA_VISIBLE_DEVICES=0,1 python medst_module.py --gpus 2 --strategy ddp --batch_size 10  --num_workers 8
 ```
@@ -60,11 +58,11 @@ First, we need set the `path` (or `ckpt_path`) argument to the path of our pre-t
 
 ##### 2. Zero-shot classification on RSNA:
 
-run `zeroshot_RSNA.py` to get the results.
+* run `zeroshot_RSNA.py` to get the results.
 
 ##### 3. Image classification on COVIDx:
 
- We use `--data_pct` to specify the portion of training data for finetuning. To run all experiments for COVIDx classification task, we use this command:
+We use `--data_pct` to specify the portion of training data for finetuning. To run all experiments for COVIDx classification task, we use this command:
 
 ```
 ./run_cls_covidx.sh
@@ -76,5 +74,11 @@ run `zeroshot_RSNA.py` to get the results.
 This work is built upon the [MGCA](https://github.com/fuying-wang/MGCA) and [TCC](https://github.com/June01/tcc_Temporal_Cycle_Consistency_Loss.pytorch).
 
 ### Citation
-
-### 
+```
+@article{yang2024unlocking,
+      title={Unlocking the Power of Spatial and Temporal Information in Medical Multimodal Pre-training}, 
+      author={Jinxia Yang and Bing Su and Wayne Xin Zhao and Ji-Rong Wen},
+      journal={arXiv preprint arXiv:2405.19654},
+      year={2024}
+}
+```
